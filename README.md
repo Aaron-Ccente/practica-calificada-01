@@ -1,0 +1,11 @@
+# Integrantes
+
+- JUAN AARON CCENTE ROJAS
+- JESUS HUARICALLO JAIME
+- SUAREZ ROMAN ARLETTE
+- OSORIO MALLQUI JOSE
+
+---
+
+## Curso
+Práctica Semana 01 - 9no
