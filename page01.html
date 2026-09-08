@@ -1,0 +1,173 @@
+<<<<<<< HEAD
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>page01 - a) Animación de label</title>
+    <style>
+      :root {
+        --bg: #0b0b0f;
+        --panel: #121218;
+        --text: #e8e8ec;
+        --placeholder: #7d7d8a;
+        --celeste: #6ee7f2;
+        --white: #f2f2f4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at 30% 20%, #17171f 0%, #0b0b0f 60%);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        padding: 40px 16px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 380px;
+        background: var(--panel);
+        border-radius: 12px;
+        padding: 28px 24px;
+        box-shadow:
+          0 30px 60px rgba(0, 0, 0, 0.55),
+          0 0 0 1px rgba(255, 255, 255, 0.03);
+      }
+
+      /* ---------- Campo de texto con animación de label ---------- */
+      .field {
+        position: relative;
+      }
+
+      .field input[type="text"],
+      .field input[type="email"] {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1.5px solid var(--white);
+        color: var(--text);
+        font-size: 15px;
+        padding: 10px 2px 10px 2px;
+        outline: none;
+        font-family: inherit;
+      }
+
+      .field label {
+        position: absolute;
+        left: 2px;
+        top: 10px;
+        color: var(--placeholder);
+        font-size: 15px;
+        pointer-events: none;
+        transition:
+          transform 0.22s ease,
+          color 0.22s ease,
+          top 0.22s ease;
+        transform-origin: left top;
+      }
+
+      /* Estado activo: el texto sube, se encoge y cambia de blanco/gris a celeste agua */
+      .field.filled label,
+      .field input:focus + label {
+        top: -14px;
+        transform: scale(0.78);
+        color: var(--celeste);
+      }
+
+      .field input:focus {
+        border-bottom-color: var(--celeste);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="field">
+        <input type="email" id="email" name="email" autocomplete="off" />
+        <label for="email">Email</label>
+      </div>
+    </div>
+
+    <script>
+      // Animación del label: sube, se encoge y cambia de color al hacer focus o al escribir
+      document.querySelectorAll(".field input").forEach(function (input) {
+        var field = input.closest(".field");
+        var sync = function () {
+          field.classList.toggle("filled", input.value.trim().length > 0);
+        };
+        input.addEventListener("input", sync);
+        input.addEventListener("blur", sync);
+        sync();
+      });
+    </script>
+  </body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página 01</title>
+  <link rel="stylesheet" href="css/globals.css">
+</head>
+<body>
+  <a href="index.html" class="btn-back">← Volver al Inicio</a>
+
+  <div class="window">
+    <div class="window-bar">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5s-1.12-2.5-2.5-2.5z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+    </div>
+
+    <form class="window-body">
+      <div class="field">
+        <input type="text" id="name" placeholder=" " required>
+        <label for="name">Nombre</label>
+      </div>
+
+      <div class="field">
+        <input type="email" id="email" placeholder=" " required>
+        <label for="email">Correo electrónico</label>
+      </div>
+
+      <div class="field">
+        <select id="item" required>
+          <option value="" disabled selected hidden></option>
+          <option value="1">Artículo 1</option>
+          <option value="2">Artículo 2</option>
+          <option value="3">Artículo 3</option>
+        </select>
+        <label for="item">Artículo</label>
+      </div>
+
+      <label class="check">
+        <input type="checkbox" required>
+        <span>¿Estás de acuerdo?</span>
+      </label>
+
+      <div class="dropzone">
+        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        <span>Arrastra una imagen aquí</span>
+        <input type="file" accept="image/*">
+      </div>
+
+      <div class="btn-row">
+        <button type="submit" class="btn">ENVIAR</button>
+        <button type="reset" class="btn">LIMPIAR</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+>>>>>>> dedcb3bf595b72ace2198d94f97598f9f2ee6e42
